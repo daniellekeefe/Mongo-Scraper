@@ -1,0 +1,55 @@
+body {
+    background-image: url("../images/bark.JPG");
+}
+
+#header {
+    background-color: transparent;
+    text-align: center;
+    border-bottom: none;
+    margin-bottom: 40px;
+}
+
+.card-title {
+    font-family: 'Eagle Lake', cursive;
+    font-size: 70px;
+    text-shadow: 1px 1px 2px #32CD32, 0 0 25px #ADFF2F, 0 0 5px #7FFF00;
+    color: black;
+}
+
+.card-text {
+    font-family: 'Eagle Lake', cursive;
+    font-size: 40px;
+    text-shadow: 1px 1px 2px #32CD32, 0 0 25px #ADFF2F, 0 0 5px #7FFF00;
+    color: black;
+}
+
+#startScrape {
+    color: black;
+    text-shadow: 1px 1px 2px #32CD32, 0 0 25px #ADFF2F, 0 0 5px #7FFF00;
+    font-family: 'Eagle Lake', cursive;
+    font-size: 40px;
+    background:rgba(255,255,255,0.5);
+    border: 1px solid #32CD32;
+}
+
+#startScrape:hover {
+    color: white;
+    background-image: url("../images/arborvitae.JPG");
+    text-shadow: -3px 0 black, 0 3px black, 3px 0 black, 0 -3px black;
+}
+
+#scrapeResults {
+    width: 85%;
+    margin: 0 auto;
+}
+
+.card-header {
+    font-family: 'Eagle Lake', cursive;
+    font-size: 25px;
+    color: #32CD32;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+#articlesDiv {
+    background-image: url("../images/asanoha-400px/asanoha-400px.png");
+}

@@ -5,11 +5,27 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/>	
+    <link href="https://fonts.googleapis.com/css?family=Eagle+Lake" rel="stylesheet">
 	<link type="text/css" href="../css/style.css" rel="stylesheet" media="screen"> 
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="crossorigin="anonymous"></script>
 </head>
 
 <body>
+
+    <div class="card w-90" id="header">
+        <div class="card-body">
+            <p class="card-title">LandScraper News</p>
+            <p class="card-text">Get the latest in horticulture headlines</p>
+            <a id="startScrape"href="#" class="btn btn-primary">Scrape for articles</a>
+        </div>
+    </div>
+    
+    <!-- style="visibility: hidden" -->
+    <div id="scrapeResults" class="card" >
+        <p class="card-header">Top Headlines:</p>
+        <div id="articlesDiv" class="card-body"></div>
+    </div>
+
 
 </body>
 
