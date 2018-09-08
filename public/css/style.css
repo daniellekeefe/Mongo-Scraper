@@ -36,17 +36,21 @@ body {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center; 
+    margin: 0px 2%;
+    align-items: stretch;
 }
 
 .colocasia {
     width: 33%;
     height: 100%;
     border: 2px solid black;
+    flex-grow: 1;
 }
 
 #slideshow {
     border-top: 2px solid black;
     border-bottom: 2px solid black;
+    height: 100%;
 }
 
 #scrapeResults {

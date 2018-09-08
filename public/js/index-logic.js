@@ -12,3 +12,18 @@ function carousel() {
     x[slideIndex-1].style.display = "block"; 
     setTimeout(carousel, 2000); 
 }
+
+$("#scrapeButton").on("click", function () {
+    hideContainer();
+    showScrapeResults();
+});
+
+const hideContainer = function() {
+    $("#container").hide();
+
+};
+
+const showScrapeResults = function() {
+    $("#scrapeResults").show(600);
+};
+
