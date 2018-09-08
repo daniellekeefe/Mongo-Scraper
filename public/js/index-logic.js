@@ -18,8 +18,37 @@ $("#scrapeButton").on("click", function () {
         type:"GET",
         url:"http://localhost:3030/articles"
     }).then(function(response) {
-        
         console.log(response);
+
+        const articleResults = $("#results");
+        articleResults.empty();
+
+        for (i =0; i < response.length; i++) {
+            const article = response[i];
+
+            const saveButton = $("<button>")
+                .addClass("saveButton")
+                .text("Save")
+                .attr("id", "buttonId" + `${i + 1}`);
+
+            const title = $("<div>")
+                .addClass("title")
+                .text(article.title)
+                .append(saveButton);
+
+            const link = $("<a>")
+                .addClass("link")
+                .text(article.link)
+                .attr("href", article.link)
+                .attr("target", "_blank");
+
+            const listItem = $("<li>")
+                .addClass("article")
+                .attr("id", "articleId" + `${i + 1}`)
+                .append(title, link);
+
+            articleResults.append(listItem);
+        }
     });
     hideContainer();
     showScrapeResults();
