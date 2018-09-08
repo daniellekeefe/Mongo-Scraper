@@ -18,8 +18,8 @@ app.use(bodyParser.json({ type: 'application/*+json' }));
 app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
 app.use(bodyParser.text({ type: 'text/html' }));
 
-require("./routing/htmlRoutes.js")(app);
-require("./routing/apiRoutes.js")(app);
+require("./routes/apiRoutes")(app);
+require("./routes/htmlRoutes")(app);
 
 app.listen(PORT, function() {
     console.log("App running on port " + PORT);

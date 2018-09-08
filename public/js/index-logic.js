@@ -14,6 +14,13 @@ function carousel() {
 }
 
 $("#scrapeButton").on("click", function () {
+    $.ajax({
+        type:"GET",
+        url:"http://localhost:3030/articles"
+    }).then(function(response) {
+        
+        console.log(response);
+    });
     hideContainer();
     showScrapeResults();
 });
