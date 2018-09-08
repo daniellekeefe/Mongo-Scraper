@@ -4,7 +4,14 @@ const request = require("request");
 const cheerio = require("cheerio");
 const bodyParser = require('body-parser');
 
+
 var PORT = process.env.PORT || 3030;
+
+
+
+
+mongoose.connect("mongodb://localhost/LandScraper", { useNewUrlParser: true });
+
 
 
 //mongoose.connect('mongodb://localhost/my_database');

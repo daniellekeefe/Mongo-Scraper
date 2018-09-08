@@ -1,6 +1,8 @@
 const request = require("request");
 const mongoose = require('mongoose');
 const cheerio = require("cheerio");
+const db = require("../models");
+
 
 module.exports = function (app) {
 
@@ -10,8 +12,6 @@ module.exports = function (app) {
             const $ = cheerio.load(html);
 
             const results = [];
-            const links = [];
-            const titles = [];
             
             $("a.story-link").each(function(i, element) {
 
@@ -23,17 +23,17 @@ module.exports = function (app) {
                 });
             });
 
-            // $("h2.headline").each(function(i, element) {
-
-            //     const title = $(element).text();
-            
-            //     titles.push({
-            //     title: title,
-            //     });
-            // });
-            
-            
-            res.json(results);
+            db.Article.create(results)
+                .then(function(dbArticle) {
+                })
+                .catch(function(err) {
+                return res.json(err);
+                });
+                
+            db.Article.find({}).then(function(dbData){
+                console.log("DB DATA --------------------, ", dbData)
+                res.json(dbData);
+            });
         });
 
     });

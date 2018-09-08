@@ -1,6 +1,4 @@
-const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost/LandScraper", { useNewUrlParser: true });
 
 
 var slideIndex = 0;
@@ -34,7 +32,7 @@ $("#scrapeButton").on("click", function () {
             const saveButton = $("<button>")
                 .addClass("saveButton")
                 .text("Save")
-                .attr("id", "buttonId" + `${i + 1}`);
+                .attr("id", article._id);
 
             const title = $("<div>")
                 .addClass("title")
@@ -49,7 +47,6 @@ $("#scrapeButton").on("click", function () {
 
             const listItem = $("<li>")
                 .addClass("article")
-                .attr("id", "articleId" + `${i + 1}`)
                 .append(title, link);
 
             articleResults.append(listItem);
@@ -60,9 +57,10 @@ $("#scrapeButton").on("click", function () {
     
 });
 
-// $(saveButton).on("click", function() {
+$(document).on("click", '.saveButton', function(){
+    console.log($(this).attr('id'));
+});
 
-// });
 
 const hideContainer = function() {
     $("#container").hide();
