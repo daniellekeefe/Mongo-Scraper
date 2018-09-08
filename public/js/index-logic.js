@@ -1,3 +1,8 @@
+const mongoose = require('mongoose');
+
+mongoose.connect("mongodb://localhost/LandScraper", { useNewUrlParser: true });
+
+
 var slideIndex = 0;
 carousel();
 
@@ -52,7 +57,12 @@ $("#scrapeButton").on("click", function () {
     });
     hideContainer();
     showScrapeResults();
+    
 });
+
+// $(saveButton).on("click", function() {
+
+// });
 
 const hideContainer = function() {
     $("#container").hide();
@@ -62,4 +72,5 @@ const hideContainer = function() {
 const showScrapeResults = function() {
     $("#scrapeResults").show(600);
 };
+
 
