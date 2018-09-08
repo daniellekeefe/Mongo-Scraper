@@ -76,3 +76,20 @@ body {
 #articlesDiv, #savedArticlesDiv {
     background-image: url("../images/asanoha-400px/asanoha-400px.png");
 }
+
+.saveButton {
+    background-color: forestgreen;
+    margin-left: 10px;
+    color: white;
+    border: 1px solid black;
+}
+
+.saveButton:hover {
+    background-color: transparent;
+    color: forestgreen;
+}
+
+.title {
+    text-decoration: underline;
+    font-weight: bold;
+}

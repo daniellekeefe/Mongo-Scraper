@@ -45,9 +45,13 @@ $("#scrapeButton").on("click", function () {
                 .attr("href", article.link)
                 .attr("target", "_blank");
 
+            const summary = $("<p>")
+                .addClass("summary")
+                .text(article.summary)
+
             const listItem = $("<li>")
                 .addClass("article")
-                .append(title, link);
+                .append(title, link, summary);
 
             articleResults.append(listItem);
         }
