@@ -26,7 +26,7 @@ $("#scrapeButton").on("click", function () {
         const articleResults = $("#results");
         articleResults.empty();
 
-        for (i =0; i < response.length; i++) {
+        for (i = 0; i < response.length; i++) {
             const article = response[i];
 
             const saveButton = $("<button>")
@@ -62,7 +62,16 @@ $("#scrapeButton").on("click", function () {
 });
 
 $(document).on("click", '.saveButton', function(){
-    console.log($(this).attr('id'));
+    var articleId = $(this).attr('id');
+    console.log("Article ID: " + articleId);
+
+    $.ajax({
+        type: "PUT",
+        url: "/save-article/" + articleId,
+    }).then(function(response) {
+        console.log(JSON.stringify(response));
+        
+    });
 });
 
 

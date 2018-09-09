@@ -40,5 +40,27 @@ module.exports = function (app) {
 
     });
 
+    app.put("/save-article/:articleId", function(req, res) {
+        db.Article.findByIdAndUpdate(req.params.articleId, {    $set: { saved: true }
+        }).then(function(data) {
+            res.json(data);
+        });
+    });
+
+    app.get("/display-saved/", function(req, res) {
+        db.Article.find( 
+            { saved: true }
+        ).then(function(data) {
+            res.json(data);
+        });
+    });
+
+    app.put("/delete-from-saved/:articleId", function(req, res) {
+        db.Article.findByIdAndUpdate(req.params.articleId, {    $set: { saved: false }
+        }).then(function(data) {
+            res.json(data);
+        });
+    });
+
 };
 

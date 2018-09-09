@@ -23,6 +23,10 @@ body {
     border: 1px solid #7FFF00;
 }
 
+#viewSavedButton:hover {
+    box-shadow: 4px 4px 2px darkgreen;
+}
+
 #scrapeButton, #headerButton {
     color: black;
     text-shadow: 1px 1px 2px #32CD32, 0 0 25px #ADFF2F, 0 0 5px #7FFF00;
@@ -77,14 +81,14 @@ body {
     background-image: url("../images/asanoha-400px/asanoha-400px.png");
 }
 
-.saveButton {
+.saveButton, .notesButton, .deleteButton {
     background-color: forestgreen;
     margin-left: 10px;
     color: white;
     border: 1px solid black;
 }
 
-.saveButton:hover {
+.saveButton:hover, .notesButton:hover, .deleteButton:hover {
     background-color: transparent;
     color: forestgreen;
 }
