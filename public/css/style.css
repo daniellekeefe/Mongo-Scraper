@@ -88,7 +88,7 @@ body {
     border: 1px solid black;
 }
 
-.saveButton:hover, .notesButton:hover, .deleteButton:hover {
+.saveButton:hover, .notesButton:hover, .deleteButton:hover, #saveNoteButton:hover {
     background-color: transparent;
     color: forestgreen;
 }
@@ -96,4 +96,21 @@ body {
 .title {
     text-decoration: underline;
     font-weight: bold;
+}
+
+#saveNoteButton {
+    background-color: forestgreen;
+    color: white;
+    border: 1px solid black;
+}
+
+.modal-header {
+    font-family: 'Eagle Lake', cursive;
+    font-size: 25px;
+    color: #32CD32;
+    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
+
+.modal-body {
+    background-image: url("../images/leaves/leaves.png");
 }

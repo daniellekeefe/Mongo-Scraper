@@ -64,9 +64,13 @@ const displaySaved = function() {
                 displaySaved();
             });
         });
-        $(".deleteButton").off("click");
-
+        //$(".deleteButton").off("click");
         
+        $(".notesButton").on("click", function() {
+            console.log("notesButton clicked")
+            $("#results-modal").modal("toggle");
+        });
+
     });
 };
 

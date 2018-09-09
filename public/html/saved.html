@@ -12,6 +12,33 @@
 
 <body>
 
+    <div id="results-modal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <p class="modal-title">Article Notes:</p>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="savedArticleNotes"></ul>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Add new note" aria-label="Add new note with two button addons" aria-describedby="button-addon4">
+                        <div class="input-group-append" id="button-addon4">
+                            <button id="saveNoteButton" class="btn btn-outline-secondary" type="button">Save</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
+        
+
     <div id="primary">
         <p>LandScraper News-- the latest headlines in horticulture</p>
     </div>
