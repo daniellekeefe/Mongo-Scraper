@@ -12,33 +12,6 @@
 
 <body>
 
-    <div id="results-modal" class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <p class="modal-title">Article Notes:</p>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <ul id="savedArticleNotes"></ul>
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Add new note" aria-label="Add new note with two button addons" aria-describedby="button-addon4">
-                        <div class="input-group-append" id="button-addon4">
-                            <button id="saveNoteButton" class="btn btn-outline-secondary" type="button">Save</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div> -->
-            </div>
-        </div>
-    </div>
-        
-
     <div id="primary">
         <p>LandScraper News-- the latest headlines in horticulture</p>
     </div>
@@ -47,12 +20,26 @@
         <a id="headerButton" href="../html/index.html" role="button" class="btn btn-primary btn-lg btn-block">Return home</a>
     </div>
 
-    <div id="saved" class="card">
-            <p class="card-header">Your saved articles:</p>
-            <div id="savedArticlesDiv" class="card-body">
-                <ol id="savedArticles"></ol>
+    <div id="saved" class="card" style="display: block">
+        <p class="card-header">Your saved articles:</p>
+        <div id="savedArticlesDiv" class="card-body">
+            <ol id="savedArticles"></ol>
+        </div>
+    </div>
+
+    <div id="notes" class="card" style="display: none">
+        <p class="card-header" style="display: inline-flex">Article Notes:</p>
+        <button id="hideNotes" style="display: inline-flex">Back to Saved Articles</button>
+        <div id="savedArticleNotesDiv" class="card-body">
+            <ul id="savedArticleNotes"></ul>
+        </div>
+        <div class="input-group">
+            <input id="noteTextInput" type="text" class="form-control" placeholder="Add new note" aria-label="Add new note with two button addons" aria-describedby="button-addon4">
+            <div class="input-group-append" id="button-addon4">
+                
             </div>
         </div>
+    </div>
 
 </body>
 

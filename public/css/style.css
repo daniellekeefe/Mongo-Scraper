@@ -25,6 +25,8 @@ body {
 
 #viewSavedButton:hover {
     box-shadow: 4px 4px 2px darkgreen;
+    color: white;
+    border: 1px solid white;
 }
 
 #scrapeButton, #headerButton {
@@ -65,7 +67,7 @@ body {
     height: 100%;
 }
 
-#scrapeResults, #saved {
+#scrapeResults, #saved, #notes {
     width: 85%;
     margin: 0 auto;
 }
@@ -77,11 +79,11 @@ body {
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
 }
 
-#articlesDiv, #savedArticlesDiv {
+#articlesDiv, #savedArticlesDiv, #savedArticleNotesDiv {
     background-image: url("../images/asanoha-400px/asanoha-400px.png");
 }
 
-.saveButton, .notesButton, .deleteButton {
+.saveButton, .notesButton, .deleteButton, #hideNotes {
     background-color: forestgreen;
     margin-left: 10px;
     color: white;
@@ -98,19 +100,13 @@ body {
     font-weight: bold;
 }
 
-#saveNoteButton {
+.saveNoteButton {
     background-color: forestgreen;
     color: white;
     border: 1px solid black;
 }
 
-.modal-header {
-    font-family: 'Eagle Lake', cursive;
-    font-size: 25px;
-    color: #32CD32;
-    text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
-}
-
-.modal-body {
-    background-image: url("../images/leaves/leaves.png");
+.input-group {
+    padding-right: 2%;
+    padding-left: 2%;
 }
