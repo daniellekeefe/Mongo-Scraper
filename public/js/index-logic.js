@@ -1,6 +1,3 @@
-
-
-
 var slideIndex = 0;
 carousel();
 
@@ -14,7 +11,7 @@ function carousel() {
     if (slideIndex > x.length) {slideIndex = 1} 
     x[slideIndex-1].style.display = "block"; 
     setTimeout(carousel, 2000); 
-}
+};
 
 $("#scrapeButton").on("click", function () {
     $.ajax({
@@ -73,7 +70,6 @@ $(document).on("click", '.saveButton', function(){
         
     });
 });
-
 
 const hideContainer = function() {
     $("#container").hide();

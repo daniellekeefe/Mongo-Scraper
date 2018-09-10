@@ -82,7 +82,7 @@ module.exports = function (app) {
     });
 
     app.get("/show-article-notes/:articleId", function(req, res) {
-        db.Article.findOne({ _id: req.params.articleId })
+        db.Article.find({ _id: req.params.articleId })
           // ..and populate all of the notes associated with it
           .populate("Note")
           .then(function(dbArticle) {

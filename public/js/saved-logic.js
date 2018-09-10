@@ -1,8 +1,4 @@
-$(document).ready(function(){      
-    displaySaved(); 
- });
-
- const deleteSavedArticle = function(articleId) {
+const deleteSavedArticle = function(articleId) {
     console.log("Article ID: " + articleId);
 
     $.ajax({
@@ -14,7 +10,7 @@ $(document).ready(function(){
     });
  };
 
- const saveNewNote = function(articleId) {
+const saveNewNote = function(articleId) {
     var newNoteText = $("#noteTextInput").val();
     console.log(newNoteText);
     $.ajax({
@@ -22,9 +18,69 @@ $(document).ready(function(){
         url:"/create-note/" + articleId,
         data: newNoteText
     }).then(function(response){
-        //displayNotes();
+        console.log("Response line 21");
+        console.log(response);
+        displayNotes(articleId);
     }); 
- };
+};
+
+const displayNotes = function(articleId) {
+    $.ajax({
+        type:"GET",
+        url:"/show-article-notes/" + articleId
+    }).then(function(response) {
+        console.log(response);
+        document.getElementById("saved").style.display="none";
+        document.getElementById("notes").style.display="block";
+        
+        const saveNoteInput = $("#button-addon4");
+        saveNoteInput.empty();
+        
+        const saveNewNoteButton = $("<button>")
+            .attr("id", articleId)
+            .addClass("saveNoteButton")
+            .attr("type", "button")
+            .text("Save");
+        
+        saveNoteInput.append(saveNewNoteButton);
+        
+        const savedNotes = $("#savedArticleNotes");
+        savedNotes.empty();
+        
+        for (i = 0; i < response.length; i++) {
+            const savedNote = response[i].note;
+            console.log(savedNote);
+            console.log("Line 53");
+
+            const deleteNoteButton = $("<button>")
+                .addClass("deleteNoteButton")
+                .text("Delete")
+                .attr("id", savedNote);
+
+            const noteText = $("<p>")
+                .addClass("noteText")
+                .text(savedNote);
+
+            const listItem = $("<li>")
+                .addClass("articleNote")
+                .append(noteText, deleteNoteButton);
+
+            savedNotes.append(listItem);
+
+        }
+
+        $("#hideNotes").on("click", function() {
+            document.getElementById("notes").style.display="none";
+            document.getElementById("saved").style.display="block";
+        });
+
+        $(".saveNoteButton").on("click", function() {
+            console.log("saveNoteButton clicked line 133");
+            var articleId = $(this).attr('id');
+            saveNewNote(articleId);
+        });
+    });
+};
 
 //  const deleteNote = function(articleId) {
 
@@ -77,66 +133,70 @@ const displaySaved = function() {
             savedArticleResults.append(listItem);
         }
         
+        
+        $(".deleteButton").on("click", function() {
+            console.log("deleteButton clicked, line 112");
+            var articleId = $(this).attr('id');
+            deleteSavedArticle(articleId);
+        });
+        
         $(".notesButton").on("click", function() {
             console.log("notesButton clicked");
             var articleId = $(this).attr('id');
-            $.ajax({
-                type:"GET",
-                url:"/show-article-notes/" + articleId
-            }).then(function(response) {
-                console.log(response);
-                document.getElementById("saved").style.display="none";
-                document.getElementById("notes").style.display="block";
-                
-                const saveNoteInput = $("#button-addon4");
-                saveNoteInput.empty();
-
-                const saveNewNoteButton = $("<button>")
-                    .attr("id", articleId)
-                    .addClass("saveNoteButton")
-                    .attr("type", "button")
-                    .text("Save");
-    
-                saveNoteInput.append(saveNewNoteButton);
-                
-                const savedNotes = $("#savedArticleNotes");
-                savedNotes.empty();
-        
-                for (i = 0; i < response.length; i++) {
-                    const savedNote = response[i];
-        
-                    const deleteButton = $("<button>")
-                        .addClass("deleteButton")
-                        .text("Delete")
-                        .attr("id", savedNote._id);
-        
-                    const noteText = $("<p>")
-                        .addClass("noteText")
-                        .text(savedNote.summary)
-        
-                    const listItem = $("<li>")
-                        .addClass("article")
-                        .append(noteText, deleteButton);
-        
-                    savedNotes.append(listItem);
-
-                }
-                $(".saveNoteButton").on("click", function() {
-                    console.log("saveNoteButton clicked line 133");
-                    var articleId = $(this).attr('id');
-                    saveNewNote(articleId);
-                });
-            });
+            displayNotes(articleId);
         });
-            $(".deleteButton").on("click", function() {
-                console.log("deleteButton clicked, line 112");
-                var articleId = $(this).attr('id');
-                deleteSavedArticle(articleId);
-            });
-
     });
 };
 
-// const displayNotes = function() {
+$(document).ready(function(){      
+    displaySaved(); 
+});
+
+        // $.ajax({
+            //     type:"GET",
+            //     url:"/show-article-notes/" + articleId
+            // }).then(function(response) {
+            //     console.log(response);
+            //     document.getElementById("saved").style.display="none";
+            //     document.getElementById("notes").style.display="block";
+                
+            //     const saveNoteInput = $("#button-addon4");
+            //     saveNoteInput.empty();
+
+            //     const saveNewNoteButton = $("<button>")
+            //         .attr("id", articleId)
+            //         .addClass("saveNoteButton")
+            //         .attr("type", "button")
+            //         .text("Save");
     
-// };
+            //     saveNoteInput.append(saveNewNoteButton);
+                
+            //     const savedNotes = $("#savedArticleNotes");
+            //     savedNotes.empty();
+        
+            //     for (i = 0; i < response.length; i++) {
+            //         const savedNote = response[i];
+        
+            //         const deleteButton = $("<button>")
+            //             .addClass("deleteButton")
+            //             .text("Delete")
+            //             .attr("id", savedNote._id);
+        
+            //         const noteText = $("<p>")
+            //             .addClass("noteText")
+            //             .text(savedNote.summary)
+        
+            //         const listItem = $("<li>")
+            //             .addClass("article")
+            //             .append(noteText, deleteButton);
+        
+            //         savedNotes.append(listItem);
+
+            //     }
+            //     $(".saveNoteButton").on("click", function() {
+            //         console.log("saveNoteButton clicked line 133");
+            //         var articleId = $(this).attr('id');
+            //         saveNewNote(articleId);
+            //     });
+        // });
+

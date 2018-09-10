@@ -103,7 +103,9 @@ body {
 .saveNoteButton {
     background-color: forestgreen;
     color: white;
-    border: 1px solid black;
+    border-radius: .25rem;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .input-group {
