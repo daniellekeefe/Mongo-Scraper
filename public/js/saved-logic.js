@@ -50,9 +50,7 @@ const displayNotes = function(articleId) {
         
         for (i = 0; i < response.note.length; i++) {
             const savedNote = response.note[i];;
-            console.log("Line 53");
             console.log(savedNote);
-            console.log("Line 53");
 
             const deleteNoteButton = $("<button>")
                 .addClass("deleteNoteButton")
@@ -61,7 +59,7 @@ const displayNotes = function(articleId) {
 
             const noteText = $("<p>")
                 .addClass("noteText")
-                .text(savedNote.body);
+                .text("🌿  " + savedNote.body);
 
             const listItem = $("<li>")
                 .addClass("articleNote")
