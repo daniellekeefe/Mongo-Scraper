@@ -16,10 +16,9 @@ const saveNewNote = function(articleId) {
     $.ajax({
         type:"POST",
         url:"/create-note/" + articleId,
-        data: newNoteText
+        data: { body: newNoteText }
     }).then(function(response){
-        console.log("Response line 21");
-        console.log(response);
+        console.log(response, "line 22");
         displayNotes(articleId);
     }); 
 };
@@ -46,20 +45,23 @@ const displayNotes = function(articleId) {
         
         const savedNotes = $("#savedArticleNotes");
         savedNotes.empty();
+
+        console.log(response);
         
-        for (i = 0; i < response.length; i++) {
-            const savedNote = response[i].note;
+        for (i = 0; i < response.note.length; i++) {
+            const savedNote = response.note[i];;
+            console.log("Line 53");
             console.log(savedNote);
             console.log("Line 53");
 
             const deleteNoteButton = $("<button>")
                 .addClass("deleteNoteButton")
                 .text("Delete")
-                .attr("id", savedNote);
+                .attr("id", savedNote._id);
 
             const noteText = $("<p>")
                 .addClass("noteText")
-                .text(savedNote);
+                .text(savedNote.body);
 
             const listItem = $("<li>")
                 .addClass("articleNote")
