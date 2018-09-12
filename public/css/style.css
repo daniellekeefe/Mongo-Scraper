@@ -78,6 +78,7 @@ body {
     font-size: 25px;
     color: #32CD32;
     text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+    border-bottom: none;
 }
 
 #articlesDiv, #savedArticlesDiv, #savedArticleNotesDiv {
@@ -103,6 +104,7 @@ body {
 
 #notesHeader {
     background-color: #DCDCDC;
+    border-bottom: 1px solid rgba(0,0,0,.125);
 }
 
 #hideNotes {

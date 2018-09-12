@@ -67,13 +67,10 @@ module.exports = function (app) {
         db.Note.create(req.body)
             .then(function(dbNote) {
                 console.log(dbNote._id)
-                // return db.Article.findOneAndUpdate({ _id: req.params.articleId }, { note: dbNote._id }, { new: true });
                 return db.Article.findOneAndUpdate({_id: req.params.articleId}, { $push: { note: dbNote._id } },{ new: true });
             }).then(function(dbArticle) {
-                // If we were able to successfully update an Article, send it back to the client
                 res.json(dbArticle);
             }).catch(function(err) {
-                // If an error occurred, send it to the client
                 res.json(err);
         });
     });
@@ -92,6 +89,15 @@ module.exports = function (app) {
           });
       
       });
+
+      app.delete("/delete-note/:noteId", function (req, res) {
+        db.Note.findByIdAndRemove(req.params.noteId, (err, note) => {
+            if (err) return res.status(500).send(err);
+            return res.status(200).send();
+        });
+
+    });
+        
 
 };
 
