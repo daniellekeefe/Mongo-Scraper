@@ -16,7 +16,7 @@ function carousel() {
 $("#scrapeButton").on("click", function () {
     $.ajax({
         type:"GET",
-        url:"http://localhost:3030/articles"
+        url:"/articles"
     }).then(function(response) {
         console.log(response);
 
