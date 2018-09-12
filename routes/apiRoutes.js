@@ -63,7 +63,6 @@ module.exports = function (app) {
 
     app.post("/create-note/:articleId", function(req, res) {
         console.log(req.body);
-        console.log("apiRoutes line 66 ");
         db.Note.create(req.body)
             .then(function(dbNote) {
                 console.log(dbNote._id)
