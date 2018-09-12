@@ -1,3 +1,5 @@
+var articleIdFromNote;
+
 const clearTextField = function() {
     document.getElementById('noteTextInput').value="";
 };
@@ -20,7 +22,7 @@ const saveNewNote = function(articleId) {
     $.ajax({
         type:"POST",
         url:"/create-note/" + articleId,
-        data: { body: newNoteText }
+        data: { body: newNoteText, article: articleId }
     }).then(function(response){
         console.log(response, "line 22");
         displayNotes(articleId);
@@ -85,7 +87,9 @@ var displayNotes = function(articleId) {
 
         $(".deleteNoteButton").on("click", function() {
             var noteId = $(this).attr('id');
+            articleIdFromNote = savedNote.article;
             console.log("deleteNoteButton clicked.");
+            console.log(articleIdFromNote);
             deleteNote(noteId);
         });
 
@@ -97,9 +101,9 @@ const deleteNote = function(noteId) {
     $.ajax({
         type: "DELETE",
         url: "/delete-note/" + noteId
+        //url:`/delete-note/noteId/${noteId}/articleId/${articleId}` 
     }).then(function(response) {
-        console.log(response);
-        displayNotes(articleId);
+        displayNotes(articleIdFromNote);
     });
 };
 

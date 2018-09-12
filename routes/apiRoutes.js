@@ -67,7 +67,7 @@ module.exports = function (app) {
         db.Note.create(req.body)
             .then(function(dbNote) {
                 console.log(dbNote._id)
-                return db.Article.findOneAndUpdate({_id: req.params.articleId}, { $push: { note: dbNote._id } },{ new: true });
+                return db.Article.findOneAndUpdate({_id: req.params.articleId}, { $push: { note: dbNote._id } }, { new: true });
             }).then(function(dbArticle) {
                 res.json(dbArticle);
             }).catch(function(err) {
@@ -77,14 +77,11 @@ module.exports = function (app) {
 
     app.get("/show-article-notes/:articleId", function(req, res) {
         db.Article.findById(req.params.articleId)
-          // ..and populate all of the notes associated with it
           .populate("note")
           .then(function(dbArticle) {
-            // If we were able to successfully find an Article with the given id, send it back to the client
             res.json(dbArticle);
           })
           .catch(function(err) {
-            // If an error occurred, send it to the client
             res.json(err);
           });
       
