@@ -22,9 +22,9 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 
 
-//var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/LandScraper";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/LandScraper";
 
-//mongoose.connect(MONGODB_URI);
+// mongoose.connect(MONGODB_URI);
 
 mongoose.connect(MONGODB_URI || "mongodb://localhost/LandScraper", { useNewUrlParser: true });
 
